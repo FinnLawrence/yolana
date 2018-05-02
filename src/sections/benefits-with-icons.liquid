@@ -1,0 +1,66 @@
+<section class="benefit-icons" data-section-id="{{ section.id }}" style="background-color: {{ section.settings.color_bg }}">
+  <div class="wrapper">
+    <h2 class="italic-heading" style="color: {{ section.settings.color_text }}">{{ section.settings.title }}</h2>
+    <div class="flex-wrapper flex-wrapper-inline-desktop">
+      {% for block in section.blocks limit: section.blocks.size %}
+      <div {{ block.shopify_attributes }} class="benefit-icon-block">
+        <img src="{{ block.settings.icon | img_url: '256x256' }}" alt="{{ block.settings.image.alt }}">
+        <p class="font-weight-lighter" style="color: {{ section.settings.color_text }}">{{ block.settings.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Benefits with icons",
+    "max_blocks": 8,
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Section Title"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Section text color"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Section background color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "icon_text",
+        "name": "Icon with text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Benefits with icons",
+        "category": "Image",
+        "blocks": [
+          {
+            "type": "icon_text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

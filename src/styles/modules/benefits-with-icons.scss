@@ -1,0 +1,31 @@
+.benefit-icons {
+  h2 {
+    width: 100%;
+    text-align: center;
+    color: $color-body-text-dark;
+    margin-bottom: 4rem;
+  }  
+}
+
+.benefit-icon-block {
+  width: 50%;
+  padding: 0px 15px;
+  text-align: center;
+  
+  img {
+    padding: 5px 15px;
+  }
+  
+  p {
+    font-size: 0.9rem;
+  }
+  
+  @media only screen and (min-width: 750px) {
+    width: 25%;
+  }
+  
+  @media only screen and (min-width: 990px) {
+    width: auto;
+    flex: 1;
+  }
+}

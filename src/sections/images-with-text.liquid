@@ -1,0 +1,63 @@
+<section data-section-id="{{ section.id }}" style="background-color: {{ section.settings.color_bg }}">
+  <div class="wrapper">
+    <div class="flex-wrapper">
+      {% for block in section.blocks limit: section.blocks.size %}
+      <div {{ block.shopify_attributes }} class="image-with-text-block">
+        <div class="image-wrapper">
+          <img src="{{ block.settings.image | img_url: '1280x1280' }}" alt="{{ block.settings.image.alt }}" onload="backgroundLoaded(this);">
+        </div>
+        <h4 class="caps-heading">{{ block.settings.title }}</h4>
+        <p>{{ block.settings.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Images with text",
+    "max_blocks": 4,
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Section background color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image_text",
+        "name": "Image with text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Images with text",
+        "category": "Image",
+        "blocks": [
+          {
+            "type": "image_text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

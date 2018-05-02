@@ -1,0 +1,52 @@
+<section id="mailchimp-signup" class="mailchimp-signup" data-section-id="{{ section.id }}" style="background-color: {{ section.settings.color_bg }}">
+  <div class="wrapper">
+    <h2 class="italic-heading" style="color: {{ section.settings.color_text }}">{{ section.settings.title }}</h2>
+    <div class="font-weight-lighter center-align" style="color: {{ section.settings.color_text }}">{{ section.settings.body }}</div>
+    <div id="mc_embed_signup">
+      <form action="https://yolana.us17.list-manage.com/subscribe/post?u=509e6fc1a8e76fbb2cbcd43c6&amp;id=199744395c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inverse" target="_blank" novalidate>
+        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="email">
+        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn">
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_509e6fc1a8e76fbb2cbcd43c6_199744395c" tabindex="-1" value=""></div>
+      </form>
+      <div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Block Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title"
+      },
+      {
+        "type": "richtext",
+        "id": "body",
+        "label": "Section Body"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Section text color"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Section background color"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Mailchimp Signup",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

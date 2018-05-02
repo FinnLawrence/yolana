@@ -1,0 +1,12 @@
+footer {
+  background-color: $color-body-text-dark;
+  color: $color-body-text;
+  
+  .flex-wrapper {
+    justify-content: space-between;
+    
+    p {
+      font-size: 14px;
+    }
+  }
+}

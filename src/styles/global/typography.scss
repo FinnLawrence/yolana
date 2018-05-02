@@ -1,0 +1,65 @@
+html, body {
+  font-family: Georgia, serif;
+}
+
+p {
+  line-height: 1.25; 
+}
+
+a, a:hover, a:visited {
+  color: $color-body-text-dark;
+}
+
+.text-dark {
+  color: $color-body-text-dark !important;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.sans-serif {
+  font-family: sans-serif;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.font-weight-normal {
+  font-weight: normal;
+}
+
+.font-weight-lighter {
+  font-weight: lighter;
+}
+
+.caps-heading {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.italic-heading {
+  font-style: italic;
+  font-weight: lighter;
+  color: $color-primary;
+  font-size: 11vw;
+  margin: 0.7rem 0;
+  
+  @media only screen and (min-width: 750px) {
+    font-size: 4vw;
+  }
+}
+
+.body-copy {
+  ul {
+    margin-left: 0px;
+    padding-left: 20px;
+  }
+  
+  li, p {
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+}

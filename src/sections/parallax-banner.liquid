@@ -1,0 +1,72 @@
+<section data-section-id="{{ section.id }}" class="parallax-banner">
+  <div class="parallax-content">
+    <h1 class="italic-heading">{{ section.settings.heading }}</h1>
+    <a href="{{ section.settings.button_link }}" class="btn scroll-to">{{ section.settings.button_text }}</a>
+  </div>
+  <div id="parallax-bg-{{ section.id }}" class="parallax-background" style="background-position: {{ section.settings.background_horizontal_position }}% {{ section.settings.background_vertical_position }}%">
+    {% if section.settings.background_image != blank %}
+    {%- assign img_url = section.settings.background_image | img_url: '2560x2560' -%}
+      <img src="{{ img_url }}" alt="{{ section.settings.banner.alt | default: shop.name }}" itemprop="image" onload="new ParallaxSection(this);">
+    {% else %}
+      <div class="placeholder-background">
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Parallax Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "range",
+        "id": "background_horizontal_position",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Background Horizontal Position",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "background_vertical_position",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Background Vertical Position",
+        "default": 50
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading Text",
+        "default": "Heading text goes here"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Click here"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Parallax Banner",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

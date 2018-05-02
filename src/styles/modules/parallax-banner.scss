@@ -1,0 +1,46 @@
+/*================ Parallax Banner ================*/
+
+section.parallax-banner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  
+  .italic-heading {
+    margin: 1.4rem 0;
+    
+    @media only screen and (min-width: 750px) {
+      max-width: 40vw;
+    }
+  }
+  
+  .parallax-content {
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    padding: 64px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .parallax-background {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    @include transition(all 0.1s);
+    top: -5%;
+    right: -5%;
+    bottom: -5%;
+    left: -5%;
+    background-size: cover;
+    
+    img {
+      display: none;
+    }
+  }
+}

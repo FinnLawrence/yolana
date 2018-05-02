@@ -1,0 +1,181 @@
+<section class="section-product" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
+
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+  <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+  <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+  <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+
+  <div class="wrapper wrapper-nav-padded">
+    <div class="product-wrapper">
+      {% if product.images.size > 1 %}
+      <div class="product-images">
+        {% for image in product.images %}
+        <div class="image-wrapper">
+          <img src="{{ image.src | img_url: '2000x2000' }}" alt="{{ image.alt | escape }}" onload="backgroundLoaded(this);">
+        </div>
+        {% endfor %}
+      </div>
+      <div class="product-carousel">
+        {% for image in product.images %}
+        <div class="product-carousel-slide">
+          <div class="image-wrapper">
+            <img src="{{ image.src | img_url: '1000x1000' }}" alt="{{ image.alt | escape }}" onload="backgroundLoaded(this);">
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="product-description">
+        <div id="product-description-sticky" class="product-description-sticky">
+          <h1 class="italic-heading">{{ product.title }}</h1>
+
+          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+            <meta itemprop="price" content="{{ current_variant.price | times: 1.15 | divided_by: 100.00 }}">
+            <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+
+            <form class="inline-cart-form" action="/cart/add" method="post" enctype="multipart/form-data">
+              {% unless product.has_only_default_variant %}
+              {% for option in product.options_with_values %}
+              <div class="selector-wrapper js">
+                <label for="SingleOptionSelector-{{ forloop.index0 }}">
+                  {{ option.name }}
+                </label>
+
+                <select
+                        id="SingleOptionSelector-{{ forloop.index0 }}"
+                        data-single-option-selector
+                        data-index="option{{ option.position }}">
+                  {% for value in option.values %}
+                  <option
+                          value="{{ value | escape }}"
+                          {% if option.selected_value == value %}selected="selected"{% endif %}>
+                    {{ value }}
+                  </option>
+                  {% endfor %}
+                </select>
+              </div>
+              {% endfor %}
+              {% endunless %}
+
+              <div class="product-price" data-price-wrapper>
+                <span data-product-price>
+                  {{ current_variant.price | times: 1.15 | money }}
+                </span>
+
+                {% if product.compare_at_price_max > product.price %}
+                <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+                <s data-compare-price>
+                  {% if current_variant.compare_at_price > current_variant.price %}
+                  {{ current_variant.compare_at_price | times: 1.15 | money }}
+                  {% endif %}
+                </s>
+                {% endif %}
+              </div>
+
+              <div class="product-shipping">
+                <span class="uppercase">{{ section.settings.shipping_text }}</span>
+              </div>
+
+              <select name="id" class="no-js" data-product-select>
+                {% for variant in product.variants %}
+                <option
+                        {% if variant == current_variant %}selected="selected"{% endif %}
+                        {% unless variant.available %}disabled="disabled"{% endunless %}
+                        value="{{ variant.id }}">
+                  {{ variant.title }}
+                </option>
+                {% endfor %}
+              </select>
+
+              <div class="product-quantity">
+                <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+                <input type="number" id="Quantity" name="quantity" value="1" min="1">
+              </div>
+
+              <button class="btn btn-dark" type="submit" name="add" data-add-to-cart {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                <span data-add-to-cart-text>
+                  {% if current_variant.available %}
+                  {{ 'products.product.add_to_cart' | t }}
+                  {% else %}
+                  {{ 'products.product.sold_out' | t }}
+                  {% endif %}
+                </span>
+              </button>
+            </form>
+
+          </div>
+
+          <div class="product-description-section">
+            <h4 class="caps-heading">{{ section.settings.product_description_heading }}</h4>
+            <div class="rte body-copy">
+              {{ product.description }}
+            </div>
+          </div>
+          <!--
+          <div class="product-description-section">
+            <h4 class="caps-heading">{{ section.settings.payment_heading }}</h4>
+            <div class="body-copy">
+              <p>{{ section.settings.payment_text }}</p>
+            </div>
+          </div>
+
+          <div class="product-description-section">
+            <h4 class="caps-heading">{{ section.settings.returns_heading }}</h4>
+            <div class="body-copy">
+              <p>{{ section.settings.returns_text }}</p>
+            </div>
+          </div>
+          -->
+        </div>
+        {% unless product == empty %}
+        <script type="application/json" data-product-json>
+      {{ product | json }}
+        </script>
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "text",
+        "id": "shipping_text",
+        "label": "Product Shipping Text",
+        "default": "Free Shipping"
+      },{
+        "type": "text",
+        "id": "product_description_heading",
+        "label": "Product Description Heading",
+        "default": "Product Specifications"
+      },{
+        "type": "text",
+        "id": "payment_heading",
+        "label": "Payment Heading",
+        "default": "Payment"
+      },{
+        "type": "textarea",
+        "id": "payment_text",
+        "label": "Payment Text"
+      },{
+        "type": "text",
+        "id": "returns_heading",
+        "label": "Returns Heading",
+        "default": "Returns"
+      },{
+        "type": "textarea",
+        "id": "returns_text",
+        "label": "Returns Text"
+      }
+    ]
+  } 
+{% endschema %}

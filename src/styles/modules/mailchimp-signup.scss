@@ -1,0 +1,32 @@
+.mailchimp-signup {
+  text-align: center;
+  
+  .italic-heading {
+    margin-bottom: 3rem;
+  }
+  
+  #mc_embed_signup {
+    margin: 20px auto;
+    max-width: 600px;
+    margin-top: 3rem;
+    
+    form {
+      display: flex;
+      flex-wrap: nowrap;
+      
+      .btn {
+        margin-left: 20px;
+      }
+      
+      input[type="email"] {
+        flex-grow: 1;
+      }
+    }
+  }
+  
+  #mce-responses {
+    .response {
+      margin: 20px 0px;
+    }
+  }
+}

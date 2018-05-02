@@ -1,0 +1,42 @@
+<h1>{{ page.title }}</h1>
+
+<div class="rte">
+  {{ page.content }}
+</div>
+
+{% schema %}
+  {
+    "name": "Site pages",
+    "settings": [
+      {
+        "type": "text",
+        "id": "shipping_text",
+        "label": "Product Shipping Text",
+        "default": "Free Shipping"
+      },{
+        "type": "text",
+        "id": "product_description_heading",
+        "label": "Product Description Heading",
+        "default": "Product Specifications"
+      },{
+        "type": "text",
+        "id": "payment_heading",
+        "label": "Payment Heading",
+        "default": "Payment"
+      },{
+        "type": "textarea",
+        "id": "payment_text",
+        "label": "Payment Text"
+      },{
+        "type": "text",
+        "id": "returns_heading",
+        "label": "Returns Heading",
+        "default": "Returns"
+      },{
+        "type": "textarea",
+        "id": "returns_text",
+        "label": "Returns Text"
+      }
+    ]
+  } 
+{% endschema %}

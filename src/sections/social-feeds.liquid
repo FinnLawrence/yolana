@@ -1,0 +1,64 @@
+<section class="social-feeds" data-section-id="{{ section.id }}" style="background-color: {{ section.settings.color_bg }}">
+  <div class="wrapper">
+    <div class="flex-wrapper">
+      <div class="social-feed-wrapper">
+        <h4 class="caps-heading">{{ section.settings.twitter_title }}</h4>
+        <div class="twitter-timeline-wrapper">
+          <a class="twitter-timeline" href="https://twitter.com/YolanaNZ?ref_src=twsrc%5Etfw">Tweets by YolanaNZ</a>
+        </div>
+        <a href="{{ settings.social_twitter_link }}" target="_blank" class="btn btn-dark">{{ section.settings.twitter_button_text }}</a>
+      </div>
+      <div class="social-feed-wrapper">
+        <h4 class="caps-heading">{{ section.settings.instagram_title }}</h4>
+        <div class="instagram-feed-wrapper">
+          <iframe src="//lightwidget.com/widgets/a0f4175ed93259ee9fd4de9bde6aec32.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+        </div>
+        <a href="{{ settings.social_instagram_link }}" target="_blank" class="btn btn-dark">{{ section.settings.instagram_button_text }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Social Feeds",
+    "settings": [
+      {
+        "type": "text",
+        "id": "twitter_title",
+        "label": "Twitter Title"
+      },
+      {
+        "type": "text",
+        "id": "twitter_button_text",
+        "label": "Twitter Button Text"
+      },
+      {
+        "type": "text",
+        "id": "instagram_title",
+        "label": "Instagram Title"
+      },
+      {
+        "type": "text",
+        "id": "instagram_button_text",
+        "label": "Instagram Button Text"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Section text color"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Section background color"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Social Feeds",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

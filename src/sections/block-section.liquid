@@ -1,0 +1,76 @@
+<section data-section-id="{{ section.id }}" style="background-color: {{ section.settings.color_bg }}">
+  {% if section.settings.invert_order %}
+  {% assign invertClass = "flex-invert-row" %}
+  {% endif %}
+  <div class="flex-wrapper flex-wrapper-inline-tablet {{ invertClass }}">
+    <div class="block-section image-section">
+      <div class="image-wrapper">
+          <img src="{{ section.settings.image | img_url: '1280x1280' }}" alt="{{ section.settings.image.alt }}" onload="backgroundLoaded(this);">
+        </div>
+    </div>
+    <div class="block-section content-section">
+      <h4 class="caps-heading" style="color: {{ section.settings.color_text }}">{{ section.settings.title }}</h4>
+      <h2 class="italic-heading" style="color: {{ section.settings.color_text }}">{{ section.settings.byline }}</h2>
+      <p style="color: {{ section.settings.color_text }}">{{ section.settings.description }}</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Block Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title"
+      },
+      {
+        "type": "text",
+        "id": "byline",
+        "label": "Section Byline"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Section Description"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Section text color"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Section background color"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Section Image"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label"
+      },{
+        "type": "checkbox",
+        "id": "invert_order",
+        "label": "Invert horizontal order?",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "Block Section",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

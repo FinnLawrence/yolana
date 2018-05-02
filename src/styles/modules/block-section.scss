@@ -1,0 +1,38 @@
+.block-section {
+  width: 100%;
+
+  @media only screen and (min-width: 750px) {
+    width: 50%;
+  }
+
+  &.content-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 5vw;
+
+    .caps-heading, p {
+      margin: 0px;
+    }
+  }
+  
+  &.image-section {
+    
+    .image-wrapper {
+      min-height: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .block-section.content-section {
+    padding-left: 30px;
+  }
+
+  .flex-invert-row {
+    .block-section.content-section {
+      padding-left: 5vw;
+      padding-right: 30px;
+    }
+  }
+}
