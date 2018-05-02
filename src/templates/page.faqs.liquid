@@ -1,6 +1,97 @@
-<h1>{{ page.title }}</h1>
+<section class="section-faqs">
+  <div class="wrapper wrapper-nav-padded">
+    <div id="faq-rte">
+      {{ page.content }}
+    </div>
+    <div class="faq-wrapper">
+      <div id="faq-sections"></div>
+      <div id="faq-content"></div>
+    </div>
+  </div>
+</section>
 
-<div class="rte">
-  {{ page.content }}
-</div>
-
+<script>
+  $(document).ready(function() {
+    buildFAQs();
+    
+    applyEventHandlers();
+  });
+  
+  function applyEventHandlers() {
+    // TODO
+  }
+  
+  function buildFAQs() {
+    var faqSections = [];
+    
+    $('#faqs h1').each(function() {
+      faqSections.push(sectionToJSON($(this)));
+    });
+    
+    for (var i = 0; i < faqSections.length; i++) {
+      createFAQSection(faqSections[i]);
+    }
+  }
+  
+  function createFAQSection(section) {
+    console.log(section);
+    var href = "faqs-panel-" + section.title.context.innerHTML.replace(/\s+/g, '-').toLowerCase();
+    var title = $('<a href="#' + href + '"></a>');
+    title.append(section.title);
+    $('#faq-sections').append(title);
+    
+    var pane = $('<div id="' + href + '" class="faq-pane"></div>');
+    
+    for (var i = 0; i < section.questions.length; i++) {
+      var question = section.questions[i];
+      
+      pane.append(question.title);
+      
+      var answerWrapper = $('<div class="answer-wrapper"></div>');
+      
+      for (var j = 0; j < question.answers.length; j++) {
+        console.log(j + " " + question.answers[j]);
+        answerWrapper.append(question.answers[j]);
+      }
+      
+      pane.append(answerWrapper);
+    }
+    
+    $('#faq-content').append(pane);
+  }
+  
+  function sectionToJSON(heading) {
+    var thisSection = {
+      title: heading,
+      questions: []
+    };
+    
+    var sectionNodes = heading.nextUntil('h1');
+    
+    var currentQuestion = undefined;
+    
+    for (var i = 0; i < sectionNodes.length; i++) {
+      
+      var thisNode = $(sectionNodes[i]);
+      
+      if (thisNode.is('h4')) {
+        if (currentQuestion != undefined) {
+          thisSection.questions.push(currentQuestion);
+        }
+        
+        currentQuestion = {
+          title: thisNode,
+          answers: []
+        }
+      } else {
+        if (currentQuestion == undefined) {
+          console.log("No leading h4 tag before:");
+          console.log(thisNode);
+        }
+        currentQuestion.answers.push(thisNode);
+      }
+    }
+    
+    return thisSection;
+  }
+</script>
