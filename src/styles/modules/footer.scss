@@ -1,6 +1,8 @@
 footer {
   background-color: $color-body-text-dark;
   color: $color-body-text;
+  position: relative;
+  z-index: 1;
   
   .flex-wrapper {
     justify-content: space-between;
