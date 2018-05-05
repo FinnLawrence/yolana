@@ -9,7 +9,7 @@
     },
     "404": {
       "title": "404 Pagina niet gevonden",
-      "subtext_html": "De pagina die u zocht bestaat niet. Klik <a href=\"/collections/all\">hier</a> om verder te shoppen."
+      "subtext_html": "De pagina die u zocht bestaat niet. Klik <a href=\"/\">hier</a> om verder te shoppen."
     },
     "password_page": {
       "opening_soon": "Binnenkort open",
@@ -80,7 +80,7 @@
       "checkout": "Plaats bestelling",
       "empty": "Uw winkelmandje is momenteel leeg.",
       "cookies_required": "Gelieve cookies te activeren om het winkelmandje te gebruiken",
-      "continue_browsing_html": "Bekijk <a href=\"/collections/all\">alle producten</a>.",
+      "continue_browsing_html": "Bekijk <a href=\"/\">alle producten</a>.",
       "item_quantity": "Hoeveelheid",
       "savings": "U bespaart"
     },
