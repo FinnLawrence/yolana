@@ -28,8 +28,10 @@
       </div>
     {% endif %}
   </header>
+  <a class="menu-link menu-link-open">Menu</a>
 
   <nav role="navigation" class="nav-links">
+    <a class="menu-link menu-link-close">Close</a>
     <ul class="site-nav">
       {% for link in linklists[section.settings.main_linklist].links %}
         {%- assign child_list_handle = link.title | handleize -%}
@@ -54,11 +56,11 @@
         {% endif %}
       {% endfor %}
     </ul>
-    <a href="/cart">
-      {% include 'icon-cart' %}
-      {{ 'layout.cart.title' | t }}
-      ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
-    </a>
+    {% if cart.item_count == 0 %}
+    <a href="/cart" class="cart-link">{% include 'icon-cart' %}</a>
+    {% else %}
+    <a href="/cart" class="cart-link active">{% include 'icon-cart' %}</a>
+    {% endif %}
 
     {% if shop.customer_accounts_enabled %}
       <ul>
@@ -84,7 +86,7 @@
         {% endif %}
       </ul>
     {% endif %}
-
+    <!--
     <form action="/search" method="get" role="search">
       <label for="Search" class="label-hidden">
         {{ 'general.search.placeholder' | t }}
@@ -99,6 +101,7 @@
         <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
       </button>
     </form>
+    -->
   </nav>
 </div>
 

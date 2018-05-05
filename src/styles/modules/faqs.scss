@@ -21,10 +21,6 @@
     a {
       text-decoration: none;
     }
-    
-    a.active {
-      color: $color-accent;
-    }
 
     h1 {
       @extend .caps-heading;

@@ -55,6 +55,8 @@ $(document).ready(function() {
   if (slate.cart.cookiesEnabled()) {
     document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');
   }
+  
+  addYolanaHandlers();
 });
 
 $('.scroll-to').click(function () {
@@ -68,3 +70,13 @@ $('.scroll-to').click(function () {
     return false;
   }
 });
+
+function addYolanaHandlers() {
+  $('.menu-link-open').click(function() {
+    $('.nav-links').addClass("open");
+  });
+  
+  $('.menu-link-close').click(function() {
+    $('.nav-links').removeClass("open");
+  });
+}

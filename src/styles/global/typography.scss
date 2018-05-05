@@ -10,6 +10,10 @@ a, a:hover, a:visited {
   color: $color-body-text-dark;
 }
 
+a.active {
+  color: $color-accent;
+}
+
 .text-dark {
   color: $color-body-text-dark !important;
 }
@@ -46,7 +50,7 @@ a, a:hover, a:visited {
   color: $color-primary;
   font-size: 11vw;
   margin: 0.7rem 0;
-  
+
   @media only screen and (min-width: 750px) {
     font-size: 4vw;
   }
@@ -57,7 +61,7 @@ a, a:hover, a:visited {
     margin-left: 0px;
     padding-left: 20px;
   }
-  
+
   li, p {
     margin-bottom: 5px;
     line-height: 1.4;
