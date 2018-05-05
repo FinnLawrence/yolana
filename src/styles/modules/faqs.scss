@@ -1,3 +1,88 @@
 #faq-rte {
   display: none;
 }
+
+.faq-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media only screen and (min-width: 750px) {
+    flex-wrap: nowrap;
+  }
+
+  #faq-sections {
+    width: 100%;
+    
+    @media only screen and (min-width: 750px) {
+      width: 30%;
+      margin-right: 30px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    h1 {
+      @extend .caps-heading;
+      font-size: 1.3em;
+    }
+  }
+  
+  #faq-content {
+    width: 100%;
+    
+    @media only screen and (min-width: 750px) {
+      width: 70%;
+    }
+  }
+
+  #faq-content {
+
+    .faq-pane {
+      display: none;
+    }
+
+    .faq-pane.active {
+      display: block;
+    }
+
+    h4 {
+      cursor: pointer;
+      margin-bottom: 0px;
+      margin-top: 30px;
+    }
+
+    h4:after {
+      transition: all 0.5s;
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border: 2px solid $color-body-text-dark;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      transform: rotate(45deg);
+      position: relative;
+      left: 10px;
+      top: -3px;
+    }
+
+    .answer-wrapper {
+      transition: all 0.5s;
+      overflow: hidden;
+    }
+
+    h4 + .answer-wrapper {
+      max-height: 0px;
+    }
+
+    h4.active:after {
+      transform: rotate(225deg);
+      top: 3px;
+    }
+
+    h4.active + .answer-wrapper {
+      max-height: 1000px;
+    }
+  }
+}

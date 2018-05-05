@@ -1,8 +1,9 @@
-<section class="section-faqs">
+<section class="section-faqs section-centred">
   <div class="wrapper wrapper-nav-padded">
     <div id="faq-rte">
       {{ page.content }}
     </div>
+    <h1 class="section-heading italic-heading">Frequently Asked Questions</h1>
     <div class="faq-wrapper">
       <div id="faq-sections"></div>
       <div id="faq-content"></div>
@@ -15,16 +16,35 @@
     buildFAQs();
     
     applyEventHandlers();
+    
+    setInitialState();
   });
   
+  function setInitialState() {
+    $('.faq-pane').first().addClass("active");
+    $('#faq-sections a').first().addClass("active");
+  }
+  
   function applyEventHandlers() {
-    // TODO
+    $('#faq-content h4').click(function() {
+      $(this).toggleClass("active");
+    });
+    
+    $('#faq-sections a').click(function(e) {
+      e.preventDefault();
+      var href = $(this).attr("href");
+      $('#faq-sections a').removeClass("active");
+      $('.faq-pane').removeClass("active");
+      
+      $(this).addClass("active");
+      $(href).addClass("active");
+    });
   }
   
   function buildFAQs() {
     var faqSections = [];
     
-    $('#faqs h1').each(function() {
+    $('#faq-rte h1').each(function() {
       faqSections.push(sectionToJSON($(this)));
     });
     
@@ -34,8 +54,7 @@
   }
   
   function createFAQSection(section) {
-    console.log(section);
-    var href = "faqs-panel-" + section.title.context.innerHTML.replace(/\s+/g, '-').toLowerCase();
+    var href = "faqs-panel-" + section.title.context.innerHTML.replace('&', '').replace('amp;', 'and').replace(/\s+/g, '-').toLowerCase();
     var title = $('<a href="#' + href + '"></a>');
     title.append(section.title);
     $('#faq-sections').append(title);
@@ -50,7 +69,6 @@
       var answerWrapper = $('<div class="answer-wrapper"></div>');
       
       for (var j = 0; j < question.answers.length; j++) {
-        console.log(j + " " + question.answers[j]);
         answerWrapper.append(question.answers[j]);
       }
       
