@@ -39,16 +39,15 @@
       </ul>
       {% endunless %}
       {% endif %}
-
+-->
       {%- assign footer_linklist = section.settings.footer_linklist -%}
       {% if linklists[footer_linklist].links.size > 0 %}
-      <ul>
+      <ul class="footer-menu">
         {% for link in linklists[footer_linklist].links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        <li><p><a href="{{ link.url }}">{{ link.title }}</a></p></li>
         {% endfor %}
       </ul>
       {% endif %}
--->
     </div>
   </div>
 </footer>

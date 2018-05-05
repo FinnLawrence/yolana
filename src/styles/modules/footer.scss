@@ -9,4 +9,15 @@ footer {
       font-size: 14px;
     }
   }
+  
+  .footer-menu {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
 }
