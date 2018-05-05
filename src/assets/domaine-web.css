@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Domaine Web';
+  src: url('DomaineTextWeb-Regular.eot');
+  src: url('DomaineTextWeb-Regular?#iefix') format('embedded-opentype'),
+       url('DomaineTextWeb-Regular.woff2') format('woff2'),
+       url('DomaineTextWeb-Regular.woff') format('woff');
+  font-weight:  400;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'Domaine Web';
+  src: url('DomaineTextWeb-Light.eot');
+  src: url('DomaineTextWeb-Light?#iefix') format('embedded-opentype'),
+       url('DomaineTextWeb-Light.woff2') format('woff2'),
+       url('DomaineTextWeb-Light.woff') format('woff');
+  font-weight:  300;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'Domaine Web';
+  src: url('DomaineTextWeb-LightItalic.eot');
+  src: url('DomaineTextWeb-LightItalic?#iefix') format('embedded-opentype'),
+       url('DomaineTextWeb-LightItalic.woff2') format('woff2'),
+       url('DomaineTextWeb-LightItalic.woff') format('woff');
+  font-weight:  300;
+  font-style:   italic;
+  font-stretch: normal;
+}
