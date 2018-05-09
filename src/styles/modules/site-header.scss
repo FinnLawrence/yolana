@@ -157,3 +157,9 @@
     }
   }
 }
+
+.site-nav--active {
+  a {
+    color: $color-accent;
+  }
+}

@@ -26,6 +26,10 @@ a.active {
   font-family: sans-serif;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -56,7 +60,13 @@ a.active {
   }
 }
 
+.color-inherit {
+  color: inherit;
+}
+
 .body-copy {
+  color: $color-body-text-dark;
+  
   ul {
     margin-left: 0px;
     padding-left: 20px;

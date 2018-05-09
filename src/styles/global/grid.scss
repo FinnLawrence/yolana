@@ -214,14 +214,14 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
+
   main {
     flex-grow: 1;
   }
 }
 
 :focus {
-    outline: none;
+  outline: none;
 }
 
 section .wrapper {
@@ -230,17 +230,47 @@ section .wrapper {
   &.wrapper-nav-padded {
     padding-top: 200px;
   }
+
+  &.wrapper-stacked-top {
+    padding-top: 0px;
+  }
+
+  &.wrapper-caps-heading {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+
+    .caps-heading {
+      margin: 0px;
+    }
+  }
 }
 
 section.section-centred {
   max-width: calc(800px + 10vw);
   margin: 0 auto;
-  
+
   .section-heading {
     text-align: center;
     color: $color-body-text-dark;
     margin-bottom: 45px;
+
+    .heading-smaller {
+      font-size: 75%;
+    }
   }
+}
+
+section.section-padded-bottom {
+  padding-bottom: 50px;
+}
+
+.section-caps-heading {
+
+}
+
+.section-grey {
+  background-color: #f2f1ef;
 }
 
 footer .wrapper {
@@ -272,5 +302,48 @@ footer .wrapper {
         flex-direction: row-reverse;
       }
     }
+  }
+
+  .flex-section {
+    width: 100%;
+    margin: 0px 0.75rem;
+  }
+}
+
+.testimonial {
+  text-align: center;
+  color: $color-body-text-dark;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 30px !important;
+
+  p {
+    max-width: 300px;
+    margin: 30px auto;
+  }
+}
+
+.sticky-wrapper {
+  position: relative;
+
+  .sticky-content {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.hide-on-mobile {
+  display: none;
+
+  @media only screen and (min-width: 750px) {
+    display: block;
+  }
+}
+
+.show-on-mobile {
+  @media only screen and (min-width: 750px) {
+    display: none;
   }
 }

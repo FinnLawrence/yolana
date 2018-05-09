@@ -55,13 +55,13 @@ $(document).ready(function() {
   if (slate.cart.cookiesEnabled()) {
     document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');
   }
-  
+
   addYolanaHandlers();
 });
 
 $('.scroll-to').click(function () {
   var target = $(this).attr('href');
-  
+
   if (target && target.charAt(0) === '#') {
     var current = $(window).scrollTop();
     var target = $(target).offset().top - 64;
@@ -75,8 +75,48 @@ function addYolanaHandlers() {
   $('.menu-link-open').click(function() {
     $('.nav-links').addClass("open");
   });
-  
+
   $('.menu-link-close').click(function() {
     $('.nav-links').removeClass("open");
   });
 }
+
+$(window).scroll(function() {
+  $('.sticky-wrapper').each(function() {
+    var wrapper = $(this);
+    var wrapperLeft = wrapper.offset().left;
+    var wrapperTop = wrapper.offset().top;
+    var wrapperBottom = wrapperTop + wrapper.outerHeight();
+    var wrapperWidth = wrapper.width();
+
+    var content = wrapper.find(".sticky-content");
+    var contentTop = content.offset().top;
+    var contentHeight = content.outerHeight();
+
+    var scroll = $(window).scrollTop();
+
+    var threshold = 100;
+
+    if (scroll + threshold > wrapperTop) {
+      if ((wrapperBottom - scroll) > (threshold + contentHeight)) {
+        content.css("position", "fixed");
+        content.css("top", threshold + "px");
+        content.css("bottom", "auto");
+        content.css("left", wrapperLeft + "px");
+        content.css("width", wrapperWidth + "px");
+      } else {
+        content.css("position", "absolute");
+        content.css("top", "auto");
+        content.css("bottom", "0px");
+        content.css("left", "0px");
+        content.css("width", wrapperWidth + "px");
+      }
+    } else {
+      content.css("position", "static");
+      content.css("top", "auto");
+      content.css("bottom", "auto");
+      content.css("left", "auto");
+      content.css("width", "auto");
+    }
+  });
+});
