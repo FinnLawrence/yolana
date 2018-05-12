@@ -58,6 +58,14 @@ a.active {
   @media only screen and (min-width: 750px) {
     font-size: 4vw;
   }
+  
+  @media only screen and (min-width: 990px) {
+    font-size: 36px;
+  }
+  
+  p {
+    margin-bottom: 0px;
+  }
 }
 
 .color-inherit {
