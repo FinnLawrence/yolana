@@ -49,6 +49,11 @@
       {% endfor %}
       {% endpaginate %}
     </div>
+    {% if blog.articles.size > 2 %}
+    <div class="right-align" style="margin-top: 30px;">
+      <a class="btn btn-dark" href="{{ blog.url }}">See all Findings ></a>
+    </div>
+    {% endif %}
   </div>
 </section>
 
