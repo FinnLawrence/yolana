@@ -181,5 +181,137 @@
         "info": "Will be scaled down to 32 x 32px"
       }
     ]
+  },
+  {
+    "name": "Testimonials",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "testimonial_1",
+        "label": "Testimonial 1"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_1_author",
+        "label": "Testimonial 1 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_2",
+        "label": "Testimonial 2"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_2_author",
+        "label": "Testimonial 2 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_3",
+        "label": "Testimonial 3"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_3_author",
+        "label": "Testimonial 3 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_4",
+        "label": "Testimonial 4"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_4_author",
+        "label": "Testimonial 4 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_5",
+        "label": "Testimonial 5"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_5_author",
+        "label": "Testimonial 5 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_6",
+        "label": "Testimonial 6"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_6_author",
+        "label": "Testimonial 6 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_7",
+        "label": "Testimonial 7"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_7_author",
+        "label": "Testimonial 7 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_8",
+        "label": "Testimonial 8"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_8_author",
+        "label": "Testimonial 8 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_9",
+        "label": "Testimonial 9"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_10_author",
+        "label": "Testimonial 10 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_11",
+        "label": "Testimonial 11"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_11_author",
+        "label": "Testimonial 11 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_12",
+        "label": "Testimonial 12"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_12_author",
+        "label": "Testimonial 12 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_13",
+        "label": "Testimonial 13"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_13_author",
+        "label": "Testimonial 13 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_14",
+        "label": "Testimonial 14"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_14_author",
+        "label": "Testimonial 14 Author"
+      },{
+        "type": "textarea",
+        "id": "testimonial_15",
+        "label": "Testimonial 15"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_15_author",
+        "label": "Testimonial 15 Author"
+      }
+    ]
   }
 ]
