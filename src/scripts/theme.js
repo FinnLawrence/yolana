@@ -59,18 +59,6 @@ $(document).ready(function() {
   addYolanaHandlers();
 });
 
-$('.scroll-to').click(function () {
-  var target = $(this).attr('href');
-
-  if (target && target.charAt(0) === '#') {
-    var current = $(window).scrollTop();
-    var target = $(target).offset().top - 64;
-    var duration = Math.abs(target - current) / 1.5;
-    $('html, body').animate({scrollTop: target}, duration);
-    return false;
-  }
-});
-
 function addYolanaHandlers() {
   $('.menu-link-open').click(function() {
     $('.nav-links').addClass("open");
@@ -78,6 +66,18 @@ function addYolanaHandlers() {
 
   $('.menu-link-close').click(function() {
     $('.nav-links').removeClass("open");
+  });
+
+  $('.scroll-to').click(function () {
+    var target = $(this).attr('href');
+
+    if (target && target.charAt(0) === '#') {
+      var current = $(window).scrollTop();
+      var target = $(target).offset().top - 106;
+      var duration = Math.abs(target - current) / 1.5;
+      $('html, body').animate({scrollTop: target}, duration);
+      return false;
+    }
   });
 }
 

@@ -1,3 +1,15 @@
+{% assign press = blogs.Press.articles.first %}
+
+<nav class="sub-nav-wrapper hide-on-mobile">
+  <ul>
+    <li><a class="scroll-to" href="#findings">Findings</a></li>
+    {% if press %}
+    <li><a class="scroll-to" href="#press">Press</a></li>
+    {% endif %}
+    <li><a class="scroll-to" href="#testimonials">Testimonials</a></li>
+  </ul>
+</nav>
+
 <section class="section-centred">
   <div class="wrapper wrapper-nav-padded">
     <div class="section-heading italic-heading">
@@ -6,7 +18,7 @@
   </div>
 </section>
 
-<section class="section-grey">
+<section id="findings" class="section-grey">
   <div class="wrapper wrapper-centred wrapper-caps-heading">
     <h4 class="caps-heading">Findings</h4>
   </div>
@@ -57,13 +69,11 @@
   </div>
 </section>
 
-
-{% assign press = blogs.Press.articles.first %}
 {% if press %}
 {% assign title = press.title | split: '|' %}
 {% assign publication = title | first %}
 {% assign heading = title | last %}
-<section class="section-centred">
+<section id="press" class="section-centred">
   <div class="wrapper wrapper-caps-heading">
     <h4 class="caps-heading">Press</h4>
   </div>
@@ -92,7 +102,7 @@
 {% endif %}
 
 
-<section class="section-grey">
+<section id="testimonials" class="section-grey">
   <div class="wrapper wrapper-caps-heading">
     <h4 class="caps-heading">Testimonials</h4>
   </div>
