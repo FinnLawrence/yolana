@@ -37,7 +37,7 @@
           {{ article.excerpt }}
           {% else %}
           <p>
-            {{ article.content | strip_html | truncatewords: 50 }}
+            {{ article.content | strip_html | truncatewords: 30 }}
           </p>
           {% endif %}
         </div>
